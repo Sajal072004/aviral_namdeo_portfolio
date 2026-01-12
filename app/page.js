@@ -102,7 +102,7 @@ export default function HomePage() {
 
     const interval = setInterval(() => {
       setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 2000); // Change image every 3 seconds
+    }, 2000); // Change image every 2 seconds
 
     return () => clearInterval(interval);
   }, []);
