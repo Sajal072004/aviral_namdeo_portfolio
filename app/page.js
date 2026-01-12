@@ -499,7 +499,7 @@ export default function HomePage() {
                     PhD Scholar
                   </h4>
                   <p className="text-slate-600">
-                    Education Leadership, Rushford Business School, Switzerland
+                    Rushford Business School, Switzerland
                   </p>
                 </div>
               </div>
