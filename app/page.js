@@ -151,8 +151,8 @@ export default function HomePage() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`flex items-center px-2 py-1 text-sm font-medium rounded transition-colors ${activeSection === item.id
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-slate-600 hover:text-blue-500 hover:bg-slate-100"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-slate-600 hover:text-blue-500 hover:bg-slate-100"
                     }`}
                 >
                   <span className="mr-1">{item.icon}</span>
@@ -184,8 +184,8 @@ export default function HomePage() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`flex items-center w-full px-3 py-2 rounded text-left ${activeSection === item.id
-                      ? "bg-blue-50 text-blue-600"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-blue-500"
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-blue-500"
                     }`}
                 >
                   <span className="mr-2">{item.icon}</span>
@@ -231,7 +231,7 @@ export default function HomePage() {
                 </button>
               </div>
               <p className="mt-8 text-sm md:text-base text-blue-100 italic">
-                Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Scholar (Education Leadership)
+                Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Scholar
               </p>
             </motion.div>
             <motion.div
@@ -367,7 +367,7 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto py-24 px-4 md:px-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-blue-600 mb-4 flex items-center justify-center gap-2">
-            <Video className="text-orange-500" /> Watch Aviral in Action
+            <Video className="text-orange-500" /> Watch Aviral Sir in Action
           </h2>
           {/* <p className="text-lg text-slate-700 max-w-3xl mx-auto">
             Get to know my teaching philosophy and approach through this recent
@@ -406,7 +406,18 @@ export default function HomePage() {
                   26+ Years Experience
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Founder, A1 Academy (1998–present)
+                  Taught thousands of students since 1999
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
+              <CardContent>
+                <School className="mx-auto text-orange-500 mb-4" size={40} />
+                <h3 className="text-xl font-semibold text-slate-800">
+                  A1 Academy
+                </h3>
+                <p className="text-slate-600 mt-2">
+                  Founder (1998–present)
                 </p>
               </CardContent>
             </Card>
@@ -435,17 +446,7 @@ export default function HomePage() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
-              <CardContent>
-                <BookMarked className="mx-auto text-orange-500 mb-4" size={40} />
-                <h3 className="text-xl font-semibold text-slate-800">
-                  PhD Scholar
-                </h3>
-                <p className="text-slate-600 mt-2">
-                  Education Leadership
-                </p>
-              </CardContent>
-            </Card>
+
           </div>
 
           <div className="mt-16">
@@ -462,7 +463,7 @@ export default function HomePage() {
                     ECIS Certified
                   </h4>
                   <p className="text-slate-600">
-                    International Education Practices
+                    Leader and Coach
                   </p>
                 </div>
               </div>
@@ -474,9 +475,6 @@ export default function HomePage() {
                   <h4 className="font-semibold text-slate-800">
                     Graduate, Operations Leadership Intensive
                   </h4>
-                  <p className="text-slate-600">
-                    QuantumLeap
-                  </p>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
@@ -489,6 +487,19 @@ export default function HomePage() {
                   </h4>
                   <p className="text-slate-600">
                     On student engagement and learning strategies
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
+                  <BookMarked size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800">
+                    PhD Scholar
+                  </h4>
+                  <p className="text-slate-600">
+                    Education Leadership, Rushford Business School, Switzerland
                   </p>
                 </div>
               </div>
@@ -864,17 +875,11 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-700">Email</h4>
-                      <p className="text-orange-600">namdeoaviral@gmail.com</p>
+                      <p className="text-orange-600">connect@aviralnamdeo.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
-                      <Phone size={20} />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-700">Phone</h4>
-                      <p className="text-orange-600">+91 8319430029</p>
-                    </div>
+                  
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
