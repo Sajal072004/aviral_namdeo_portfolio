@@ -40,6 +40,25 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
 
+  const galleryImages = [
+    { src: "/interacting_with_students.jpeg", title: "Interacting with students", description: "" },
+    { src: "/listening_to_students.jpeg", title: "Listening to students", description: "" },
+    { src: "/aps_kamtee.jpeg", title: "Aps Kamtee", description: "" },
+    { src: "/at_iim_calcutta.jpeg", title: "At IIM Calcutta", description: "" },
+    { src: "/at_iit_delhi.jpeg", title: "At IIT Delhi", description: "" },
+    { src: "/with_dr_vm_chariar.jpeg", title: "With Dr V M Chariar", description: "Prof IIT Delhi" },
+    { src: "/with_mr_rajiv_talreha.jpeg", title: "With Mr Rajiv Talreha", description: "Business Coach at Proficon Bengaluru" },
+    { src: "/at_jio_institute.jpeg", title: "At Jio Institute", description: "Navi Mumbai" },
+    { src: "/with_helen_and_sarah.jpeg", title: "With Helen and Sarah", description: "Trainers - ECIS, Jio Institute" },
+    { src: "/ayi_jio_institute_classroom.jpeg", title: "Ayi Jio Institute class room", description: "" },
+    { src: "/at_t_hub_hyderabad.jpeg", title: "At T-Hub Hyderabad", description: "India's largest technology incubator" },
+    { src: "/rewarding_badminton_players.jpeg", title: "Rewarding badminton players", description: "" },
+    { src: "/delivering_speech_iim_calcutta.jpeg", title: "Delivering speech at IIM Calcutta", description: "" },
+    { src: "/didac_india_bengaluru.jpeg", title: "Didac India Bengaluru", description: "" },
+    { src: "/judge_stemfield_school.jpeg", title: "As a judge in Stemfield International School", description: "" },
+    { src: "/facilitated_stemfield_school.jpeg", title: "Facilitated at Stemfield International School", description: "" },
+  ];
+
   const scrollPrev = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
@@ -82,23 +101,7 @@ export default function HomePage() {
 
   // Auto-advance gallery slideshow
   useEffect(() => {
-    const galleryImages = [
-      {
-        src: "/teaching1.JPG",
-        title: "Engaging Classroom Sessions",
-        description: "Interactive teaching methods that make learning enjoyable"
-      },
-      {
-        src: "/teaching2.JPG",
-        title: "Hands-On Learning",
-        description: "Practical demonstrations that bring concepts to life"
-      },
-      {
-        src: "/aviral_about1.png",
-        title: "Passionate Educator",
-        description: "26+ years of dedicated teaching excellence"
-      }
-    ];
+    // Gallery images are now defined in main component scope
 
     const interval = setInterval(() => {
       setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
@@ -251,12 +254,14 @@ export default function HomePage() {
                 <Button className="bg-orange-500 text-white hover:bg-orange-600 px-6 py-2 rounded-full cursor-pointer font-medium shadow-lg">
                   Know My Method
                 </Button>
-                <button
-                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-blue-600 cursor-pointer px-6 py-2 rounded-full font-medium transition-all"
-                  onClick={() => scrollToSection("contact")}
+                <a
+                  href="https://www.linkedin.com/in/aviral-namdeo-b0ab6b7a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-blue-600 cursor-pointer px-6 py-2 rounded-full font-medium transition-all inline-block"
                 >
                   Connect on LinkedIn
-                </button>
+                </a>
               </div>
               <p className="mt-8 text-sm md:text-base text-blue-100 italic">
                 Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Scholar
@@ -827,35 +832,27 @@ export default function HomePage() {
           <div className="relative max-w-4xl mx-auto">
             {/* Main Image Display */}
             <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              {[
-                {
-                  src: "/teaching1.JPG",
-                  title: "Engaging Classroom Sessions",
-                  description: "Interactive teaching methods that make learning enjoyable"
-                },
-                {
-                  src: "/teaching2.JPG",
-                  title: "Hands-On Learning",
-                  description: "Practical demonstrations that bring concepts to life"
-                },
-                {
-                  src: "/aviral_about1.png",
-                  title: "Passionate Educator",
-                  description: "26+ years of dedicated teaching excellence"
-                }
-              ].map((image, index) => (
+              {galleryImages.map((image, index) => (
                 <div
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-1000 ${index === currentGalleryIndex ? "opacity-100" : "opacity-0"
                     }`}
                 >
+                  {/* Blurred Background Layer for "Fill" effect */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center blur-xl scale-110 brightness-50"
+                    style={{ backgroundImage: `url(${image.src})` }}
+                  />
+
+                  {/* Main Image Layer (Contained) */}
                   <img
                     src={image.src}
                     alt={image.title}
-                    className="w-full h-full object-cover"
+                    className="relative w-full h-full object-contain z-10"
                   />
+
                   {/* Overlay with title and description */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-8">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-8 z-20">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                       {image.title}
                     </h3>
@@ -869,21 +866,21 @@ export default function HomePage() {
 
             {/* Navigation Arrows */}
             <button
-              onClick={() => setCurrentGalleryIndex((prev) => prev === 0 ? 2 : prev - 1)}
+              onClick={() => setCurrentGalleryIndex((prev) => prev === 0 ? galleryImages.length - 1 : prev - 1)}
               className="absolute top-1/2 left-4 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10"
             >
               <ChevronLeft className="text-blue-600" size={28} />
             </button>
             <button
-              onClick={() => setCurrentGalleryIndex((prev) => (prev + 1) % 3)}
+              onClick={() => setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length)}
               className="absolute top-1/2 right-4 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10"
             >
               <ChevronRight className="text-blue-600" size={28} />
             </button>
 
             {/* Dots Indicator */}
-            <div className="flex justify-center gap-3 mt-6">
-              {[0, 1, 2].map((index) => (
+            <div className="flex justify-center gap-3 mt-6 flex-wrap px-4">
+              {galleryImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentGalleryIndex(index)}
@@ -1131,7 +1128,9 @@ export default function HomePage() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/aviral-namdeo-b0ab6b7a"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-slate-700 hover:bg-orange-500 transition-colors p-2 rounded-full"
                 >
                   <svg
