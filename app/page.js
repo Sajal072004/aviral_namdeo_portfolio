@@ -267,7 +267,7 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="mt-8 text-sm md:text-base text-blue-100 italic">
-                Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Scholar
+                Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Candidate
               </p>
             </motion.div>
             <motion.div
@@ -496,7 +496,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800">
-                    PhD Scholar
+                    PhD Candidate
                   </h4>
                   <p className="text-slate-600">
                     Rushford Business School, Switzerland
@@ -829,7 +829,7 @@ export default function HomePage() {
             <Video className="text-orange-500" /> Gallery
           </h2>
           <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
-            Moments from the classroom that capture the joy of learning
+            Glimpses of my journey in education, mentorship, and beyond.
           </p>
 
           <div className="relative max-w-4xl mx-auto">
