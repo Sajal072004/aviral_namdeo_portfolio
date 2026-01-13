@@ -39,6 +39,7 @@ export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const galleryImages = [
     { src: "/interacting_with_students.jpeg", title: "Interacting with students", description: "" },
@@ -57,6 +58,21 @@ export default function HomePage() {
     { src: "/didac_india_bengaluru.jpeg", title: "Didac India Bengaluru", description: "" },
     { src: "/judge_stemfield_school.jpeg", title: "As a judge in Stemfield International School", description: "" },
     { src: "/facilitated_stemfield_school.jpeg", title: "Facilitated at Stemfield International School", description: "" },
+  ];
+
+  const videos = [
+    {
+      src: "https://www.youtube.com/embed/nJv0RP1xTRI",
+      title: "A 26 year Journey: Passionate Math & Science Teaching in the age of AI"
+    },
+    {
+      src: "https://www.youtube.com/embed/rt-KBiFjeSQ",
+      title: "The Comeback Is Stronger Than the Setback | Mihika’s Inspiring Career Journey | A1 Academy Podcast"
+    },
+    {
+      src: "https://www.youtube.com/embed/23gr0ROGY6o",
+      title: "The #1 Mistake Parents Make in Modern Education"
+    }
   ];
 
   const scrollPrev = () => {
@@ -410,16 +426,54 @@ export default function HomePage() {
             talk on "Reimagining Education for the 21st Century"
           </p> */}
         </div>
-        <div className="aspect-w-16 aspect-h-9">
-          <div className="w-full mx-auto max-w-4xl shadow-2xl rounded-xl overflow-hidden">
-            <iframe
-              className="w-full aspect-video"
-              src="https://www.youtube.com/embed/nJv0RP1xTRI"
-              title="A 26 year Journey: Passionate Math & Science Teaching in the age of AI"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+        <div className="relative max-w-4xl mx-auto">
+          <div className="w-full shadow-2xl rounded-xl overflow-hidden bg-slate-900 border border-slate-100">
+            <div className="relative w-full pt-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src={videos[currentVideoIndex].src}
+                title={videos[currentVideoIndex].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+          <div className="p-4 bg-white mt-4 rounded-xl shadow-sm text-center max-w-2xl mx-auto border border-slate-100">
+            <h3 className="font-semibold text-slate-800 text-lg">
+              {videos[currentVideoIndex].title}
+            </h3>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => setCurrentVideoIndex((prev) => prev === 0 ? videos.length - 1 : prev - 1)}
+            className="absolute top-[40%] md:top-1/2 -left-4 md:-left-16 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10 text-blue-600 hover:text-orange-500 hover:scale-110"
+            aria-label="Previous Video"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          <button
+            onClick={() => setCurrentVideoIndex((prev) => (prev + 1) % videos.length)}
+            className="absolute top-[40%] md:top-1/2 -right-4 md:-right-16 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10 text-blue-600 hover:text-orange-500 hover:scale-110"
+            aria-label="Next Video"
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-3 mt-6">
+            {videos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`h-3 rounded-full transition-all ${index === currentVideoIndex
+                  ? "w-8 bg-orange-500"
+                  : "w-3 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                aria-label={`Go to video ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
