@@ -445,7 +445,7 @@ export default function HomePage() {
                   A1 Academy
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Founder (1998–present)
+                  Founder ( 2013 - Present)
                 </p>
               </CardContent>
             </Card>
@@ -484,6 +484,19 @@ export default function HomePage() {
             <div className="space-y-4">
               <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
                 <div className="mt-1 text-orange-500">
+                  <BookMarked size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800">
+                    PhD Scholar
+                  </h4>
+                  <p className="text-slate-600">
+                    Rushford Business School, Switzerland
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
                   <Award size={24} />
                 </div>
                 <div>
@@ -501,33 +514,10 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800">
-                    Graduate, Operations Leadership Intensive
-                  </h4>
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
-                <div className="mt-1 text-orange-500">
-                  <Award size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-800">
                     Published Research Paper
                   </h4>
                   <p className="text-slate-600">
                     on underperformance of students and ways to improve them
-                  </p>
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
-                <div className="mt-1 text-orange-500">
-                  <BookMarked size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-800">
-                    PhD Scholar
-                  </h4>
-                  <p className="text-slate-600">
-                    Rushford Business School, Switzerland
                   </p>
                 </div>
               </div>
