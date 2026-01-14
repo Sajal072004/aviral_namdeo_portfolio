@@ -1082,7 +1082,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Workshops:</span>
-                    <span className="text-orange-600 font-medium">Now booking for 2025</span>
+                    <span className="text-orange-600 font-medium">Now booking for 2026</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Consulting:</span>
