@@ -952,6 +952,67 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Study Plan Section */}
+      <section
+        id="study-plan"
+        className="bg-gradient-to-b from-amber-50 via-white to-amber-50/40 py-24 px-4 md:px-20"
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-blue-600 mb-4 text-center flex justify-center items-center gap-2">
+            <BookOpen className="text-orange-500" /> Study Plan
+          </h2>
+          <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
+            Thank you for reading the book. Download the companion study plan
+            below to start applying the ideas, one week at a time.
+          </p>
+
+          <div className="bg-white border border-amber-200/60 rounded-2xl shadow-md p-6 sm:p-10">
+            <h3 className="text-xl font-semibold text-slate-900">
+              What&apos;s inside
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {[
+                "Structured week-by-week roadmap",
+                "Curated resources and reading list",
+                "Practice exercises and reflection prompts",
+                "Tips from Aviral's classroom experience",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-slate-700"
+                >
+                  <Award className="mt-0.5 size-5 shrink-0 text-amber-600" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="/study-plan.pdf"
+                download="Aviral-Namdeo-Study-Plan.pdf"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-amber-600 hover:bg-amber-700 text-white px-6 h-11 text-sm font-medium shadow-sm transition-colors"
+              >
+                <FileText className="size-5" />
+                Download Study Plan (PDF)
+              </a>
+              <a
+                href="/study-plan.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-6 h-11 text-sm font-medium shadow-sm transition-colors"
+              >
+                Preview in browser
+              </a>
+            </div>
+
+            <p className="mt-6 text-xs text-slate-500">
+              Trouble downloading? Right-click the button and choose &quot;Save link as…&quot;.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section
         id="contact"
