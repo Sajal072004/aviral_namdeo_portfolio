@@ -162,7 +162,7 @@ export default function HomePage() {
     },
     { id: "podcasts", label: "Media", icon: <Mic size={18} /> },
     // { id: "publications", label: "Publications", icon: <FileText size={18} /> },
-    { id: "study-plan", label: "Study Plan", icon: <BookMarked size={18} /> },
+    { id: "study-plan", label: "Beyond Marks", icon: <BookMarked size={18} /> },
     { id: "contact", label: "Contact", icon: <Phone size={18} /> },
   ];
 
@@ -955,9 +955,12 @@ export default function HomePage() {
         className="bg-gradient-to-b from-amber-50 via-white to-amber-50/40 py-24 px-4 md:px-20"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-blue-600 mb-4 text-center flex justify-center items-center gap-2">
-            <BookOpen className="text-orange-500" /> Study Plans
+          <h2 className="text-4xl font-bold text-blue-600 mb-2 text-center flex justify-center items-center gap-2">
+            <BookOpen className="text-orange-500" /> Beyond Marks
           </h2>
+          <p className="text-xl font-semibold text-amber-600 mb-4 text-center">
+            Companion Toolkit
+          </p>
           <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
             Thank you for reading the book. Pick a companion study plan below and
             start applying the ideas, one step at a time.
