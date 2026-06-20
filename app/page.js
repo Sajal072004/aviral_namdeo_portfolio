@@ -62,10 +62,6 @@ export default function HomePage() {
 
   const videos = [
     {
-      src: "https://www.youtube.com/embed/nJv0RP1xTRI",
-      title: "A 26 year Journey: Passionate Math & Science Teaching in the age of AI"
-    },
-    {
       src: "https://www.youtube.com/embed/rt-KBiFjeSQ",
       title: "The Comeback Is Stronger Than the Setback | Mihika’s Inspiring Career Journey | A1 Academy Podcast"
     },
@@ -166,6 +162,7 @@ export default function HomePage() {
     },
     { id: "podcasts", label: "Media", icon: <Mic size={18} /> },
     // { id: "publications", label: "Publications", icon: <FileText size={18} /> },
+    { id: "study-plan", label: "Study Plan", icon: <BookMarked size={18} /> },
     { id: "contact", label: "Contact", icon: <Phone size={18} /> },
   ];
 
@@ -957,59 +954,94 @@ export default function HomePage() {
         id="study-plan"
         className="bg-gradient-to-b from-amber-50 via-white to-amber-50/40 py-24 px-4 md:px-20"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-blue-600 mb-4 text-center flex justify-center items-center gap-2">
-            <BookOpen className="text-orange-500" /> Study Plan
+            <BookOpen className="text-orange-500" /> Study Plans
           </h2>
           <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
-            Thank you for reading the book. Download the companion study plan
-            below to start applying the ideas, one week at a time.
+            Thank you for reading the book. Pick a companion study plan below and
+            start applying the ideas, one step at a time.
           </p>
 
-          <div className="bg-white border border-amber-200/60 rounded-2xl shadow-md p-6 sm:p-10">
-            <h3 className="text-xl font-semibold text-slate-900">
-              What&apos;s inside
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {[
-                "Structured week-by-week roadmap",
-                "Curated resources and reading list",
-                "Practice exercises and reflection prompts",
-                "Tips from Aviral's classroom experience",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-slate-700"
-                >
-                  <Award className="mt-0.5 size-5 shrink-0 text-amber-600" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Clutter Audit & Reset Sheet",
+                chapter: "Chapter 3",
+                purpose: "Clarity",
+                file: "/clutter-audit-reset-sheet.pdf",
+                icon: <BookMarked className="size-6" />,
+              },
+              {
+                title: "Priority Over Procrastination Planner",
+                chapter: "Chapter 5",
+                purpose: "Decision-making",
+                file: "/priority-over-procrastination-planner.pdf",
+                icon: <CalendarCheck className="size-6" />,
+              },
+              {
+                title: "Monthly Consistency Tracker",
+                chapter: "Chapter 7",
+                purpose: "Consistency",
+                file: "/monthly-consistency-tracker.pdf",
+                icon: <CalendarCheck className="size-6" />,
+              },
+              {
+                title: "Study Sprint Planner",
+                chapter: "Chapter 9",
+                purpose: "Focus and execution",
+                file: "/study-sprint-planner.pdf",
+                icon: <Clock className="size-6" />,
+              },
+              {
+                title: "Revision & Recall Tracker",
+                chapter: "Chapter 11",
+                purpose: "Retention and memory",
+                file: "/revision-recall-tracker.pdf",
+                icon: <BookOpen className="size-6" />,
+              },
+              {
+                title: "Future Self Worksheet",
+                chapter: "Chapter 12",
+                purpose: "Identity and purpose",
+                file: "/future-self-worksheet.pdf",
+                icon: <Sparkles className="size-6" />,
+              },
+            ].map((plan, index) => (
               <a
-                href="/study-plan.pdf"
-                download="Aviral-Namdeo-Study-Plan.pdf"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-amber-600 hover:bg-amber-700 text-white px-6 h-11 text-sm font-medium shadow-sm transition-colors"
-              >
-                <FileText className="size-5" />
-                Download Study Plan (PDF)
-              </a>
-              <a
-                href="/study-plan.pdf"
+                key={plan.title}
+                href={plan.file}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-6 h-11 text-sm font-medium shadow-sm transition-colors"
+                className="group flex flex-col h-full bg-white border border-amber-200/60 rounded-2xl shadow-md p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-amber-300"
               >
-                Preview in browser
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-center size-12 rounded-xl bg-amber-100 text-amber-700 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                    {plan.icon}
+                  </div>
+                  <span className="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
+                    {plan.chapter}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {plan.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 flex-1">
+                  <span className="font-medium text-slate-500">Purpose:</span>{" "}
+                  {plan.purpose}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-amber-700 group-hover:text-amber-800">
+                  <FileText className="size-4" />
+                  Open PDF
+                  <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
               </a>
-            </div>
-
-            <p className="mt-6 text-xs text-slate-500">
-              Trouble downloading? Right-click the button and choose &quot;Save link as…&quot;.
-            </p>
+            ))}
           </div>
+
+          <p className="mt-8 text-xs text-slate-500 text-center">
+            Trouble opening a plan? Right-click and choose &quot;Save link as…&quot;.
+          </p>
         </div>
       </section>
 
