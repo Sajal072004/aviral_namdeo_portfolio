@@ -1,5 +1,17 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
+
+// Full years elapsed since Aviral's teaching career began (19 June 1999)
+const getYearsOfExperience = () => {
+  const start = new Date(1999, 5, 19); // Month is 0-indexed: 5 = June
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  const monthDiff = now.getMonth() - start.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < start.getDate())) {
+    years--;
+  }
+  return years;
+};
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,6 +52,12 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [yearsOfExperience, setYearsOfExperience] = useState(getYearsOfExperience);
+
+  // Recompute on client mount so the count stays accurate over time
+  useEffect(() => {
+    setYearsOfExperience(getYearsOfExperience());
+  }, []);
 
   const galleryImages = [
     { src: "/interacting_with_students.jpeg", title: "Interacting with students", description: "" },
@@ -261,7 +279,7 @@ export default function HomePage() {
                 Teacher • Mentor • Educationist
               </p>
               <p className="mt-4 text-lg text-slate-100">
-                For over 26 years, I've helped students not just score better—but think deeper, explore fearlessly, and fall in love with learning.
+                For over {yearsOfExperience} years, I've helped students not just score better—but think deeper, explore fearlessly, and fall in love with learning.
               </p>
               <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
                 <Button
