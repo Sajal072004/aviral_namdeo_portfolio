@@ -199,12 +199,16 @@ export default function HomePage() {
       <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">AN</span>
-              <span className="ml-2 hidden md:block text-lg font-medium text-slate-700">
-                Aviral Namdeo
-              </span>
-            </div>
+            <button
+              onClick={() => scrollToSection("home")}
+              className="flex items-center overflow-visible -ml-10 sm:-ml-14"
+            >
+              <img
+                src="/logo_new.png"
+                alt="Aviral Namdeo"
+                className="h-12 w-auto scale-[2] origin-left translate-y-1"
+              />
+            </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-6">
@@ -1063,6 +1067,19 @@ export default function HomePage() {
           <p className="mt-8 text-xs text-slate-500 text-center">
             Trouble opening a plan? Right-click and choose &quot;Save link as…&quot;.
           </p>
+
+          <div className="-mt-2 flex justify-end">
+            <div className="flex flex-col items-end text-right pr-2 sm:pr-6">
+              <img
+                src="/sign_new1.png"
+                alt="Aviral Namdeo signature"
+                className="h-40 sm:h-52 w-auto mix-blend-multiply drop-shadow-sm"
+              />
+              <span className="-mt-10 sm:-mt-12 whitespace-nowrap text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+                Teacher · Mentor · Author
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
